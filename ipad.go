@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 
-func inputNums() ([]int) {
+func inputNums() []int {
 
 	var score int
 	nums := make([]int,5)
