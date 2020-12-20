@@ -2,39 +2,40 @@ package main
 
 import "fmt"
 
-func bubbleSort([]int nums) {
+func bubbleSort(nums []int) {
 	var temp int
-	temp = nums[0]
 	for i:=0;i<len(nums);i++ {
-		for j:=1;j<len(nums)-1;i++ {
-			if nums[j] < temp {
-
+		for j:=0;j<len(nums)-i-1;j++ {
+			if nums[j] > nums[j+1] {
+				temp = nums[j]
+				nums[j] = nums[j+1]
+				nums[j+1] = temp
 			}
 		}
 	}
 
 }
 
-func inputNums() []int {
-	nums := make([]int, 100, 100)
-
-
+func inputNums() []int{
 	var n,num int
-
+	var nums []int
 	fmt.Scanln(&n)
 	for i:=0;i<n;i++ {
 		fmt.Scanln(&num)
-		nums= append(nums,num)
+		nums=append(nums,num)
 	}
 	return nums
+
 }
 
-func outputNums() {
-
+func outputNums(nums []int) {
+	for i:=0;i<len(nums);i++ {
+		fmt.Printf("%d ",nums[i])
+	}
 }
 
 func main() {
 	nums := inputNums()
-	bubbleSort()
-	outputNums()
+	bubbleSort(nums)
+	outputNums(nums)
 }
